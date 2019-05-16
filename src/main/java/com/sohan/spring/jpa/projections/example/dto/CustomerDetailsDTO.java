@@ -19,5 +19,5 @@ public interface CustomerDetailsDTO {
     String getCountry();
 
     @Value("#{@mapperUtility.buildOrderDTO(target.orderNumber, target.totalAmount)}")
-    CustomerOrderDTO getCustomerOrder();
+    OrderDTO getOrder();
 }

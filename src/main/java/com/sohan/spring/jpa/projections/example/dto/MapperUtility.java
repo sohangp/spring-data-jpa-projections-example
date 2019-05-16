@@ -5,14 +5,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class MapperUtility {
 
-    public CustomerOrderDTO buildOrderDTO(Long orderNumber, Double totalAmount) {
-        CustomerOrderDTO customerOrderDTO = null;
+    public OrderDTO buildOrderDTO(Long orderNumber, Double totalAmount) {
+        OrderDTO order = null;
 
         if (orderNumber != null) {
-            customerOrderDTO = new CustomerOrderDTO();
-            customerOrderDTO.setOrderNumber(orderNumber);
-            customerOrderDTO.setTotalAmount("$" + totalAmount);
+            order = new OrderDTO();
+            order.setOrderNumber(orderNumber);
+            order.setTotalAmount("$" + totalAmount);
         }
-        return customerOrderDTO;
+        return order;
     }
 }

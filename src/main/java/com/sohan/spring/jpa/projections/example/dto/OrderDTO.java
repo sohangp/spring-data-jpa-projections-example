@@ -3,7 +3,7 @@ package com.sohan.spring.jpa.projections.example.dto;
 /**
  * POJO for holding Order related data
  */
-public class CustomerOrderDTO {
+public class OrderDTO {
     private Long orderNumber;
     private String totalAmount;
 
