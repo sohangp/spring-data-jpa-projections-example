@@ -14,10 +14,10 @@
                 cust.LAST_NAME as lastName,
                 cust.CITY as city,
                 cust.COUNTRY as country,
-                customerOrder.ORDER_NUMBER as orderNumber,
-                customerOrder.TOTAL_AMOUNT as totalAmount
-            FROM CUSTOMER cust LEFT JOIN CUSTOMER_ORDER customerOrder
-                 ON customerOrder.CUSTOMER_ID = cust.ID
+                corder.ORDER_NUMBER as orderNumber,
+                corder.TOTAL_AMOUNT as totalAmount
+            FROM CUSTOMER cust LEFT JOIN CUSTOMER_ORDER corder
+                 ON corder.CUSTOMER_ID = cust.ID
          ]]></query>
     </named-native-query>
 </entity-mappings>

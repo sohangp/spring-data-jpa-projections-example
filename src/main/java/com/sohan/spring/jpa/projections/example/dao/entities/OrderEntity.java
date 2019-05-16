@@ -2,10 +2,7 @@ package com.sohan.spring.jpa.projections.example.dao.entities;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Entity that maps the CUSTOMER_ORDER table.
@@ -13,7 +10,7 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table(name = "CUSTOMER_ORDER")
-public class CustomerOrderEntity {
+public class OrderEntity {
 
     @Id
     @Column(name = "ID")
@@ -25,6 +22,7 @@ public class CustomerOrderEntity {
     @Column(name = "TOTAL_AMOUNT")
     private String totalAmount;
 
-    @Column(name = "CUSTOMER_ID")
-    private String customerId;
+    @OneToOne
+    @JoinColumn(name="CUSTOMER_ID", nullable=false)
+    private CustomerEntity customer;
 }
