@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -35,5 +36,16 @@ public class CustomerController {
     @RequestMapping(value = "/customers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CustomerDetailsDTO> getCustomers() throws Exception {
         return customerService.getCustomersAndOrderData();
+    }
+
+    /**
+     * Search for customer based on first name.
+     *
+     * @param firstName
+     * @return List<CustomerDetailsDTO>
+     */
+    @RequestMapping(value = "/customers/~/search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CustomerDetailsDTO> searchCustomerByFirstName(@RequestParam("firstname") String firstName) throws Exception {
+        return customerService.searchCustomerByFirstName(firstName);
     }
 }

@@ -18,4 +18,12 @@ public interface CustomerService {
      * @return List<CustomerDetailsDTO>
      */
     List<CustomerDetailsDTO> getCustomersAndOrderData() throws Exception;
+
+    /**
+     * Search for customer based on first name.
+     *
+     * @param firstName
+     * @return List<CustomerDetailsDTO>
+     */
+    List<CustomerDetailsDTO> searchCustomerByFirstName(String firstName) throws  Exception;
 }

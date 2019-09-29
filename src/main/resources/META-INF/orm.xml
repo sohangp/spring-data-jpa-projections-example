@@ -5,7 +5,7 @@
     http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
     version="2.1">
 
-    <!-- Application Details Fetch -->
+    <!-- Customer Details Fetch -->
     <named-native-query name="customerEntity.getCustomerDetails">
         <query><![CDATA[
             SELECT
@@ -20,4 +20,23 @@
                  ON corder.CUSTOMER_ID = cust.ID
          ]]></query>
     </named-native-query>
+
+    <!-- Search Customer By First Name -->
+    <named-native-query name="customerEntity.searchCustomerByFirstName">
+        <query><![CDATA[
+            SELECT
+                cust.id as customerId,
+                cust.FIRST_NAME as firstName,
+                cust.LAST_NAME as lastName,
+                cust.CITY as city,
+                cust.COUNTRY as country,
+                corder.ORDER_NUMBER as orderNumber,
+                corder.TOTAL_AMOUNT as totalAmount
+            FROM CUSTOMER cust LEFT JOIN CUSTOMER_ORDER corder
+                 ON corder.CUSTOMER_ID = cust.ID
+            WHERE
+                 cust.FIRST_NAME = :firstName
+         ]]></query>
+    </named-native-query>
+
 </entity-mappings>

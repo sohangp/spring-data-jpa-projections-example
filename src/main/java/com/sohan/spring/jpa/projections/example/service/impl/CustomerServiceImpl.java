@@ -31,4 +31,15 @@ public class CustomerServiceImpl implements CustomerService {
     public List<CustomerDetailsDTO> getCustomersAndOrderData() throws Exception {
         return customerRepository.getCustomerDetails();
     }
+
+    /**
+     * Search for customer based on first name.
+     *
+     * @param firstName
+     * @return List<CustomerDetailsDTO>
+     */
+    @Override
+    public List<CustomerDetailsDTO> searchCustomerByFirstName(String firstName) throws  Exception {
+        return customerRepository.searchCustomerByFirstName(firstName);
+    }
 }
