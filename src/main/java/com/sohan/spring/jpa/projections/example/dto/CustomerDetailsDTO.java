@@ -18,4 +18,4 @@ public interface CustomerDetailsDTO {
 
     @Value("#{@mapperUtility.buildOrderDTO(target.orderNumber, target.totalAmount)}")
     OrderDTO getOrder();
-}
+} 
